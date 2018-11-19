@@ -4,18 +4,18 @@ import bank.exceptions.IllegalBalanceException;
 
 public class ServiceChargeChecking extends CheckingAccount{	
 
-	private Integer m_fee = 10; // the fee to charge every month
+	private Float m_fee = (float) 10; // the fee to charge every month
 	
 	//*** Constructors ************\\
 	//New fee
-	public	ServiceChargeChecking(String ownerId , String ownerName, String accountNumber, Integer fee) {
-		super(ownerId,  ownerName, accountNumber);
+	public	ServiceChargeChecking(String ownerId , String ownerName, String accountNumber, Float balance, Float fee) {
+		super(ownerId,  ownerName, accountNumber, balance);
 		m_fee = fee;		
 	}
 	
 	//Default fee
-	public	ServiceChargeChecking(String ownerId , String ownerName, String accountNumber) {
-		super(ownerId,  ownerName, accountNumber);
+	public	ServiceChargeChecking(String ownerId , String ownerName, String accountNumber, Float balance) {
+		super(ownerId,  ownerName, accountNumber, balance);
 	}
 
 	//************	Account	management	************\\
@@ -31,11 +31,11 @@ public class ServiceChargeChecking extends CheckingAccount{
 	}	
 	
 	//************	Setter & Getter ************\\
-	public Integer getFee() {
+	public Float getFee() {
 		return m_fee;
 	}
 	
-	public void setFee(Integer m_fee) {
+	public void setFee(Float m_fee) {
 		this.m_fee = m_fee;
 	}	
 }

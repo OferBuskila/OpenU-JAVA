@@ -33,22 +33,20 @@
 
 package bank.accounts;
 
-import bank.exceptions.IllegalBalanceException;
-
 public class NoServiceChargeChecking extends CheckingAccount{	
 
-	private Integer m_minBalance = 10; // the fee to charge every month
+	private Float m_minBalance = (float) 10.0; // the fee to charge every month
 	
 	//************ Constructors ************\\
 	//New fee
-	public	NoServiceChargeChecking(String ownerId , String ownerName, String accountNumber, Integer minBalance) {
-		super(ownerId,  ownerName, accountNumber);
+	public	NoServiceChargeChecking(String ownerId, String ownerName, String accountNumber, Float balance, Float minBalance) {
+		super(ownerId,  ownerName, accountNumber, balance);
 		m_minBalance = minBalance;		
 	}
 	
 	//Default minimal Balance
-	public	NoServiceChargeChecking(String ownerId , String ownerName, String accountNumber) {
-		super(ownerId,  ownerName, accountNumber);
+	public	NoServiceChargeChecking(String ownerId, String ownerName, String accountNumber, Float balance) {
+		super(ownerId,  ownerName, accountNumber, balance);
 	}
 
 	@Override
@@ -57,11 +55,11 @@ public class NoServiceChargeChecking extends CheckingAccount{
 	
 	//************	Setter & Getter ************\\
 	
-	public Integer getMinBalance() {
+	public Float getMinBalance() {
 		return m_minBalance;
 	}
 	
-	public void setMinBalance(Integer minBalance) {
+	public void setMinBalance(Float minBalance) {
 		this.m_minBalance = minBalance;
 	}	
 }

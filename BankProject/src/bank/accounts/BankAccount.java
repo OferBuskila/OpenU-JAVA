@@ -9,25 +9,26 @@ public abstract class BankAccount 	{
 	private	final	String	m_accountNumber; // account number (can't changed)
 	private			String	m_ownerName; // holder's name
 	private			String	m_ownerId; // holder's ID	
-	private 		Integer	m_balance;
+	private 		Float	m_balance;
 	
 	// constructor
-	public BankAccount(String ownerId, String ownerName, String accountNumber) {
+	public BankAccount(String ownerId, String ownerName, String accountNumber,Float balance) {
 		m_ownerName = ownerName;
 		m_ownerId = ownerId;
 		m_accountNumber = accountNumber;
+		m_balance = balance;
 	}
 
 	//************	Account	management	************\\
 	
 	abstract void management();
 	
-	public void deposit(int amount) {
+	public void deposit(Float amount) {
 		if (amount>0) // cant add negative amount
 		m_balance += amount;		
 	}
 	
-	public void withdraw(int amount) throws IllegalBalanceException{
+	public void withdraw(Float amount) throws IllegalBalanceException{
 		if (m_balance>=amount)
 			m_balance -= amount;
 		else
@@ -36,7 +37,7 @@ public abstract class BankAccount 	{
 	
 	//************	Getters		************\\
 	
-	public Integer getBalance() {
+	public Float getBalance() {
 		return m_balance;
 	}
 	

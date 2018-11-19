@@ -2,17 +2,17 @@ package bank.accounts;
 
 public class SavingsAccount extends BankAccount{
 	
-	private int m_intrest = 10; 
+	private Float m_intrest = (float) 0.1; 
 	
 	//************ Constructors ************\\
 	
-	public SavingsAccount(String ownerId , String ownerName, String accountNumber,int intrest) {
-		super(ownerId,  ownerName, accountNumber);
+	public SavingsAccount(String ownerId, String ownerName, String accountNumber, Float balance, Float intrest) {
+		super(ownerId,  ownerName, accountNumber,balance);
 		m_intrest	=	intrest;
 	}
 	
-	public SavingsAccount(String ownerId , String ownerName, String accountNumber) {
-		super(ownerId,  ownerName, accountNumber);
+	public SavingsAccount(String ownerId, String ownerName, String accountNumber,Float balance) {
+		super(ownerId,  ownerName, accountNumber,balance);
 	}
 
 	//************	Account	management	************\\
@@ -23,17 +23,17 @@ public class SavingsAccount extends BankAccount{
 		this.deposit(calIntrest());
 	}	
 
-	private int calIntrest(){	
+	private Float calIntrest(){	
 		return (this.getBalance() * m_intrest)/100;
 	}
 	
 	//************	Setter & Getter ************\\
 	
-	public double getIntrest() {
+	public Float getIntrest() {
 		return m_intrest;
 	}
 
-	public void setIntrest(int intrest) {
+	public void setIntrest(Float intrest) {
 		this.m_intrest = intrest;
 	}
 	
